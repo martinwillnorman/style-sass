@@ -1,17 +1,29 @@
-
+@import './_variables'
+  
+*
+  box-sizing: inherit
+  &:before, &:after
+    box-sizing: inherit
 
 html
+  font-size: $font-size-root
   line-height: 1.15
   -webkit-text-size-adjust: 100%
+  text-rendering: optimizeLegibility
+  box-sizing: border-box
+  color: $font-color-base
 
 body
   margin: 0
+  overflow-x: hidden
+  -moz-osx-font-smoothing: grayscale
+  -webkit-font-smoothing: antialiased
 
 main
   display: block
 
 h1
-  font-size: 2em
+  font-size: 2rem
   margin: 0.67em 0
 
 hr
@@ -25,6 +37,11 @@ pre
 
 a
   background-color: transparent
+  color: $link-color-base
+  text-decoration: $link-decoration
+  &:hover
+    color: $link-color-hover
+    text-decoration: $link-hover-decoration
 
 abbr[title]
   border-bottom: none
@@ -121,3 +138,6 @@ summary
 
 template, [hidden]
   display: none
+
+h1, h2, h3, h4, h5, h6, p, span, a, div, li, small
+  margin: 0
