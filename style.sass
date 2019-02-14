@@ -32,88 +32,88 @@
   margin-right: $container-padding / 2
   margin-left: $container-padding / 2
 
-.col-1-24
+.col-1
   flex-basis: 4.1667%
 
-.col-1-12, .col-2-24
+.col-2
   flex-basis: 8.3333%
 
-.col-1-8, .col-3-24
+.col-3
   flex-basis: 12.5000%
 
-.col-1-6, .col-4-24
+.col-4
   flex-basis: 16.6667%
 
 .col-1-5
   flex-basis: 20%
 
-.col-5-24
+.col-5
   flex-basis: 20.8333%
 
-.col-1-4, .col-6-24
+.col-6
   flex-basis: 25%
 
-.col-7-24
+.col-7
   flex-basis: 29.1667%
 
-.col-1-3, .col-8-24
+.col-8
   flex-basis: 33.3333%
 
-.col-3-8, .col-9-24
+.col-9
   flex-basis: 37.5000%
 
 .col-2-5
   flex-basis: 40%
 
-.col-5-12, .col-10-24
+.col-10
   flex-basis: 41.6667%
 
-.col-11-24
+.col-11
   flex-basis: 45.8333%
 
-.col-1-2, .col-12-24
+.col-12
   flex-basis: 50%
 
-.col-13-24
+.col-13
   flex-basis: 54.1667%
 
-.col-7-12, .col-14-24
+.col-14
   flex-basis: 58.3333%
 
 .col-3-5
   flex-basis: 60%
 
-.col-5-8, .col-15-24
+.col-15
   flex-basis: 62.5000%
 
-.col-2-3, .col-16-24
+.col-16
   flex-basis: 66.6667%
 
-.col-17-24
+.col-17
   flex-basis: 70.8333%
 
-.col-3-4, .col-18-24
+.col-18
   flex-basis: 75%
 
-.col-19-24
+.col-19
   flex-basis: 79.1667%
 
 .col-4-5
   flex-basis: 80%
 
-.col-5-6, .col-20-24
+.col-20
   flex-basis: 83.3333%
 
-.col-7-8, .col-21-24
+.col-21
   flex-basis: 87.5000%
 
-.col-11-12, .col-22-24
+.col-22
   flex-basis: 91.6667%
 
-.col-23-24
+.col-23
   flex-basis: 95.8333%
 
-.col-1, .col-1-1, .col-5-5, .col-24-24
+.col-24
   flex-basis: 100%
 
 @media only screen and (max-width: 1000px)
@@ -294,18 +294,28 @@ template, [full-width]
     left: 50%
     transform: translate(-50%, -50%)
 
-// --------------------------------------------------------- standard media queries
+@mixin breakpoint($point)
+  @if $point == xxl
+    @media (min-width: 1500px) { @content } 
 
-// @media only screen and (max-width: 1500px) 
+  @else if $point == container
+    @media (min-width: $container-width) { @content } 
 
-// @media only screen and (max-width: $container-width) 
+  @else if $point == xl
+    @media (min-width: 990px) { @content } 
 
-// @media only screen and (max-width: 990px)
+  @else if $point == l
+    @media (min-width: 768px) { @content } 
 
-// @media only screen and (max-width: 768px) 
+  @else if $point == m
+    @media (max-width: 540px) { @content } 
 
-@media only screen and (max-width: 540px)
+  @else if $point == s
+    @media (max-width: 450px) { @content } 
 
+// --------------------------------------------------------- media queries
+
+@include breakpoint(m)
   ul.two
     columns: 1
 
@@ -345,5 +355,11 @@ template, [full-width]
   .marg-bottom-xxl
     margin-bottom: $margin-base * 1.6667
 
-// @media only screen and (max-width: 450px)
  
+/* notes  
+    
+    responsive letter spacing formula: calc((x)px - (0.0y)em) 
+
+    container padding usually between 10 - 40px or 1.66667rem
+
+    recommended max-width for text - 560px
