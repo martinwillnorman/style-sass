@@ -6,7 +6,7 @@
 .container
   margin-left: auto
   margin-right: auto
-  padding: 0 $container-padding
+  margin: 0 $container-margin
   max-width: $container-width
   display: flex
   flex-wrap: wrap
@@ -15,8 +15,8 @@
 // --------------------------------------------------------- row
 
 .row
-  margin-left: -$container-padding / 2
-  margin-right: -$container-padding / 2
+  margin-left: -$container-margin / 2
+  margin-right: -$container-margin / 2
   flex: auto
   display: flex
   flex-flow: row wrap
@@ -29,8 +29,8 @@
 // --------------------------------------------------------- column
 
 .column
-  padding-right: $container-padding / 2
-  padding-left: $container-padding / 2
+  margin-right: $container-margin / 2
+  margin-left: $container-margin / 2
 
 .col-1-24
   flex-basis: 4.1667%
@@ -166,57 +166,57 @@
 .full-width
   width: 100%
 
-// --------------------------------------------------------- padding
+// --------------------------------------------------------- margin
 
-.pad-s
-  padding: $padding-base 0
+.marg-s
+  margin: $margin-base 0
 
-.pad-m
-  padding: $padding-base * 1.66667 0
+.marg-m
+  margin: $margin-base * 1.66667 0
 
-.pad-l
-  padding: $padding-base * 2.3333 0
+.marg-l
+  margin: $margin-base * 2.3333 0
 
-.pad-xl
-  padding: $padding-base * 3.3333 0
+.marg-xl
+  margin: $margin-base * 3.3333 0
 
-.pad-xxl
-  padding: $padding-base * 5 0
+.marg-xxl
+  margin: $margin-base * 5 0
 
-.pad-top-s
-  padding-top: $padding-base
+.marg-top-s
+  margin-top: $margin-base
 
-.pad-top-m
-  padding-top: $padding-base * 1.66667
+.marg-top-m
+  margin-top: $margin-base * 1.66667
 
-.pad-top-l
-  padding-top: $padding-base * 2.3333
+.marg-top-l
+  margin-top: $margin-base * 2.3333
 
-.pad-top-xl
-  padding-top: $padding-base * 3.3333
+.marg-top-xl
+  margin-top: $margin-base * 3.3333
 
-.pad-top-xxl
-  padding-top: $padding-base * 5
+.marg-top-xxl
+  margin-top: $margin-base * 5
 
-.pad-bottom-s
-  padding-bottom: $padding-base
+.marg-bottom-s
+  margin-bottom: $margin-base
 
-.pad-bottom-m
-  padding-bottom: $padding-base * 1.66667
+.marg-bottom-m
+  margin-bottom: $margin-base * 1.66667
 
-.pad-bottom-l
-  padding-bottom: $padding-base * 2.3333
+.marg-bottom-l
+  margin-bottom: $margin-base * 2.3333
 
-.pad-bottom-xl
-  padding-bottom: $padding-base * 3.3333
+.marg-bottom-xl
+  margin-bottom: $margin-base * 3.3333
 
-.pad-bottom-xxl
-  padding-bottom: $padding-base * 5
+.marg-bottom-xxl
+  margin-bottom: $margin-base * 5
 
 // --------------------------------------------------------- unordered list
 
 ul.no-style
-  padding-left: 0
+  margin-left: 0
   margin-bottom: 0
   list-style: none
 
@@ -288,41 +288,41 @@ template, [white]
   ul.two
     columns: 1
 
-  .pad-m
-    padding: $padding-base 0
+  .marg-m
+    margin: $margin-base 0
 
-  .pad-l
-    padding: $padding-base 0
+  .marg-l
+    margin: $margin-base 0
 
-  .pad-xl
-    padding: $padding-base * 1.3333 0
+  .marg-xl
+    margin: $margin-base * 1.3333 0
 
-  .pad-xxl
-    padding: $padding-base * 1.6667 0
+  .marg-xxl
+    margin: $margin-base * 1.6667 0
 
-  .pad-top-m
-    padding-top: $padding-base
+  .marg-top-m
+    margin-top: $margin-base
 
-  .pad-top-l
-    padding-top: $padding-base
+  .marg-top-l
+    margin-top: $margin-base
 
-  .pad-top-xl
-    padding-top: $padding-base * 1.3333
+  .marg-top-xl
+    margin-top: $margin-base * 1.3333
 
-  .pad-top-xxl
-    padding-top: $padding-base * 1.6667
+  .marg-top-xxl
+    margin-top: $margin-base * 1.6667
 
-  .pad-bottom-m
-    padding-bottom: $padding-base
+  .marg-bottom-m
+    margin-bottom: $margin-base
 
-  .pad-bottom-l
-    padding-bottom: $padding-base
+  .marg-bottom-l
+    margin-bottom: $margin-base
 
-  .pad-bottom-xl
-    padding-bottom: $padding-base * 1.3333
+  .marg-bottom-xl
+    margin-bottom: $margin-base * 1.3333
 
-  .pad-bottom-xxl
-    padding-bottom: $padding-base * 1.6667
+  .marg-bottom-xxl
+    margin-bottom: $margin-base * 1.6667
 
 // @media only screen and (max-width: 450px)
  
