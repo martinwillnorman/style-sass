@@ -6,7 +6,7 @@
 .container
   margin-left: auto
   margin-right: auto
-  margin: 0 $container-margin
+  margin: 0 $container-padding
   max-width: $container-width
   display: flex
   flex-wrap: wrap
@@ -15,8 +15,8 @@
 // --------------------------------------------------------- row
 
 .row
-  margin-left: -$container-margin / 2
-  margin-right: -$container-margin / 2
+  margin-left: -$container-padding / 2
+  margin-right: -$container-padding / 2
   flex: auto
   display: flex
   flex-flow: row wrap
@@ -29,8 +29,8 @@
 // --------------------------------------------------------- column
 
 .column
-  margin-right: $container-margin / 2
-  margin-left: $container-margin / 2
+  margin-right: $container-padding / 2
+  margin-left: $container-padding / 2
 
 .col-1-24
   flex-basis: 4.1667%
@@ -158,14 +158,6 @@
 .flex-bottom
   align-items: bottom
 
-// --------------------------------------------------------- wrapper
-
-.copy-center
-  text-align: center
-
-.full-width
-  width: 100%
-
 // --------------------------------------------------------- margin
 
 .marg-s
@@ -236,8 +228,9 @@ ul.two
 
 // --------------------------------------------------------- background color
 
-.fill-black
-  background-color: #000 
+@each $background, $color in $background
+  template, [fill-#{$background}]
+    background-color: $color
 
 // --------------------------------------------------------- utilities
 
@@ -270,8 +263,18 @@ template, [full-background]
 template, [hide-overflow]
   overflow: hidden
 
-template, [white]
+template, [copy-white]
   color: #fff
+
+template, [flex]
+  display: flex 
+  flex-wrap: wrap
+
+template, [copy-center]
+  text-align: center
+
+template, [full-width]
+  width: 100%
 
 // --------------------------------------------------------- standard media queries
 
