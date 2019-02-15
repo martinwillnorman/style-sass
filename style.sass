@@ -1,5 +1,5 @@
 @import './_normalize'
-@import './_variables'
+@import './_config'
 
 // --------------------------------------------------------- container
     
@@ -217,19 +217,14 @@ ul.two
 
 // --------------------------------------------------------- copy color
 
-.header
-  color: $font-color-header
-
-.subheader
-  color: $font-color-subheader
-
-.copy
-  color: $font-color-copy
+@each $font-color-additional, $color in $font-color-additional
+  .#{$font-color-additional}
+    color: $color
 
 // --------------------------------------------------------- background color
 
-@each $background, $color in $background
-  template, [fill-#{$background}]
+@each $background-colors, $color in $background-colors
+  template, [fill-#{$background-colors}]
     background-color: $color
 
 // --------------------------------------------------------- utilities
@@ -263,15 +258,15 @@ template, [full-background]
 template, [hide-overflow]
   overflow: hidden
 
+template, [copy-center]
+  text-align: center
+
 template, [copy-white]
   color: #fff
 
 template, [flex]
   display: flex 
   flex-wrap: wrap
-
-template, [copy-center]
-  text-align: center
 
 template, [full-width]
   width: 100%
@@ -294,28 +289,17 @@ template, [full-width]
     left: 50%
     transform: translate(-50%, -50%)
 
-@mixin breakpoint($point)
-  @if $point == xxl
-    @media (min-width: 1500px) { @content } 
-
-  @else if $point == container
-    @media (min-width: $container-width) { @content } 
-
-  @else if $point == xl
-    @media (min-width: 990px) { @content } 
-
-  @else if $point == l
-    @media (min-width: 768px) { @content } 
-
-  @else if $point == m
-    @media (max-width: 540px) { @content } 
-
-  @else if $point == s
-    @media (max-width: 450px) { @content } 
+@mixin mediaquery($width, $type: max) 
+    @if map_has_key($breakpoints, $width) 
+        $width: map_get($breakpoints, $width)
+        @if $type == max 
+            $width: $width - 1px
+        @media only screen and (#{$type}-width: $width) 
+            @content
 
 // --------------------------------------------------------- media queries
 
-@include breakpoint(m)
+@include mediaquery(phablet)
 
   ul.two
     columns: 1

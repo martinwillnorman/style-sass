@@ -1,4 +1,4 @@
-@import './_variables'
+@import './_config.sass'
   
 *
   box-sizing: inherit
@@ -28,6 +28,7 @@ body
   line-height: $line-height-base
 
 h1, h2, h3, h4, h5, h6
+  color: $font-color-header
   font:
     family: $font-family-header
 
@@ -65,6 +66,13 @@ h5
   line-height: $line-height-base
   margin-top: $line-height-base
   margin-bottom: 0rem
+
+h6
+  font:
+    size: 0.9rem
+  line-height: 1rem
+  margin-top: 1rem
+  margin-bottom: 0rem 
 
 p, ul, ol, pre, table, blockquote
   margin-top: 0rem
