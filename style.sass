@@ -1,11 +1,11 @@
 @import './_normalize'
 @import './_config'
+@import './_mixins'
 
 // --------------------------------------------------------- container
     
 .container
-  margin-left: auto
-  margin-right: auto
+  +auto
   margin: 0 $container-padding
   max-width: $container-width
   display: flex
@@ -15,8 +15,9 @@
 // --------------------------------------------------------- row
 
 .row
-  margin-left: -$container-padding / 2
-  margin-right: -$container-padding / 2
+  margin:
+    left: -$container-padding / 2
+    right: -$container-padding / 2
   flex: auto
   display: flex
   flex-flow: row wrap
@@ -29,8 +30,9 @@
 // --------------------------------------------------------- column
 
 .column
-  margin-right: $container-padding / 2
-  margin-left: $container-padding / 2
+  margin:
+    left: $container-padding / 2
+    right: $container-padding / 2
 
 .col-1
   flex-basis: 4.1667%
@@ -152,7 +154,7 @@
 .flex-center
   justify-content: center
 
-.flex-middle
+.flex-mediumiddle
   align-items: center
 
 .flex-bottom
@@ -160,49 +162,49 @@
 
 // --------------------------------------------------------- margin
 
-.marg-s
+.margin-small
   margin: $margin-base 0
 
-.marg-m
+.margin-medium
   margin: $margin-base * 1.66667 0
 
-.marg-l
+.margin-large
   margin: $margin-base * 2.3333 0
 
-.marg-xl
+.margin-xlarge
   margin: $margin-base * 3.3333 0
 
-.marg-xxl
+.margin-xxlarge
   margin: $margin-base * 5 0
 
-.marg-top-s
+.margin-small-top
   margin-top: $margin-base
 
-.marg-top-m
+.margin-medium-top
   margin-top: $margin-base * 1.66667
 
-.marg-top-l
+.margin-large-top
   margin-top: $margin-base * 2.3333
 
-.marg-top-xl
+.margin-xlarge-top
   margin-top: $margin-base * 3.3333
 
-.marg-top-xxl
+.margin-xxlarge-top
   margin-top: $margin-base * 5
 
-.marg-bottom-s
+.margin-small-bottom
   margin-bottom: $margin-base
 
-.marg-bottom-m
+.margin-medium-bottom
   margin-bottom: $margin-base * 1.66667
 
-.marg-bottom-l
+.margin-large-bottom
   margin-bottom: $margin-base * 2.3333
 
-.marg-bottom-xl
+.margin-xlarge-bottom
   margin-bottom: $margin-base * 3.3333
 
-.marg-bottom-xxl
+.margin-xxlarge-bottom
   margin-bottom: $margin-base * 5
 
 // --------------------------------------------------------- unordered list
@@ -255,6 +257,9 @@ template, [full-background]
   overflow: hidden
   background-size: cover
 
+template, [full-width]
+  width: 100%
+
 template, [hide-overflow]
   overflow: hidden
 
@@ -268,76 +273,47 @@ template, [flex]
   display: flex 
   flex-wrap: wrap
 
-template, [full-width]
-  width: 100%
-
-// --------------------------------------------------------- mixins
-
-@mixin center($position) 
-  position: absolute
-  
-  @if $position == 'vertical' 
-    top: 50%
-    transform: translateY(-50%)
-  
-  @else if $position == 'horizontal' 
-    left: 50%
-    transform: translate(-50%)
-  
-  @else if $position == 'both' 
-    top: 50%
-    left: 50%
-    transform: translate(-50%, -50%)
-
-@mixin mediaquery($width, $type: max) 
-    @if map_has_key($breakpoints, $width) 
-        $width: map_get($breakpoints, $width)
-        @if $type == max 
-            $width: $width - 1px
-        @media only screen and (#{$type}-width: $width) 
-            @content
-
-// --------------------------------------------------------- media queries
+// --------------------------------------------------------- responsive elements
 
 @include mediaquery(phablet)
 
   ul.two
     columns: 1
 
-  .marg-m
+  .margin-medium
     margin: $margin-base 0
 
-  .marg-l
+  .margin-large
     margin: $margin-base 0
 
-  .marg-xl
+  .margin-xlarge
     margin: $margin-base * 1.3333 0
 
-  .marg-xxl
+  .margin-xxlarge
     margin: $margin-base * 1.6667 0
 
-  .marg-top-m
+  .margin-medium-top
     margin-top: $margin-base
 
-  .marg-top-l
+  .margin-large-top
     margin-top: $margin-base
 
-  .marg-top-xl
+  .margin-xlarge-top
     margin-top: $margin-base * 1.3333
 
-  .marg-top-xxl
+  .margin-xxlarge-top
     margin-top: $margin-base * 1.6667
 
-  .marg-bottom-m
+  .margin-medium-bottom
     margin-bottom: $margin-base
 
-  .marg-bottom-l
+  .margin-large-bottom
     margin-bottom: $margin-base
 
-  .marg-bottom-xl
+  .margin-xlarge-bottom
     margin-bottom: $margin-base * 1.3333
 
-  .marg-bottom-xxl
+  .margin-xxlarge-bottom
     margin-bottom: $margin-base * 1.6667
 
  
